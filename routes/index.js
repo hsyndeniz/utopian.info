@@ -3,8 +3,6 @@ const router = express.Router();
 const request = require('request');
 
 var stats;
-var mods;
-var sponsors;
 var vid_tuts;
 var sub_projects;
 var bugs;
@@ -20,8 +18,6 @@ var task_count;
 
 
 var stats_url = "https://utopian-report.herokuapp.com/stats/";
-var mods_url = "https://utopian-report.herokuapp.com/moderators/";
-var sponsors_url = "https://utopian-report.herokuapp.com/sponsors/";
 
 request(stats_url, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
@@ -38,21 +34,6 @@ request(stats_url, { json: true }, (err, res, body) => {
 
     task_count = task_social.total_posts + task_documentation + task_graphics.total_posts + task_translations.total_posts + task_development.total_posts + task_ideas.total_posts;
     console.log(task_count);
-});
-
-
-
-request(mods_url, { json: true }, (err, res, body) => {
-    if (err) { return console.log(err); }
-    mods = body;
-   // console.log(body);
-});
-
-
-request(sponsors_url, { json: true }, (err, res, body) => {
-    if (err) { return console.log(err); }
-    sponsors = body;
-   // console.log(body);
 });
 
 
