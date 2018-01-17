@@ -130,52 +130,52 @@
             }]
         },
         "dataProvider": [{
-            "country": "Blog",
-            "litres": <%= stats.categories.blog.total_posts %>
+            "category": "Blog",
+            "value": <%= stats.categories.blog.total_posts %>
     }, {
-        "country": "Social",
-            "litres": <%= stats.categories.social.total_posts %>
+        "category": "Social",
+            "value": <%= stats.categories.social.total_posts %>
     }, {
-        "country": "Analysis",
-            "litres": <%= stats.categories.analysis.total_posts %>
+        "category": "Analysis",
+            "value": <%= stats.categories.analysis.total_posts %>
     }, {
-        "country": "Tutorials",
-            "litres": <%= stats.categories.tutorials.total_posts %>
+        "category": "Tutorials",
+            "value": <%= stats.categories.tutorials.total_posts %>
     }, {
-        "country": "Video Tutorials",
-            "litres": <%= stats.categories.tutorials.total_posts %>
+        "category": "Video Tutorials",
+            "value": <%= stats.categories.tutorials.total_posts %>
     }, {
-        "country": "CopyWriting",
-            "litres": <%= stats.categories.copywriting.total_posts %>
+        "category": "CopyWriting",
+            "value": <%= stats.categories.copywriting.total_posts %>
     }, {
-        "country": "Documentation",
-            "litres": <%= stats.categories.documentation.total_posts %>
+        "category": "Documentation",
+            "value": <%= stats.categories.documentation.total_posts %>
     }, {
-        "country": "Graphics",
-            "litres": <%= stats.categories.graphics.total_posts %>
+        "category": "Graphics",
+            "value": <%= stats.categories.graphics.total_posts %>
     }, {
-        "country": "Translations",
-            "litres": <%= stats.categories.translations.total_posts %>
+        "category": "Translations",
+            "value": <%= stats.categories.translations.total_posts %>
     }, {
-        "country": "Bug Hunting",
-            "litres": <%= bugs %>
+        "category": "Bug Hunting",
+            "value": <%= bugs %>
     }, {
-        "country": "Development",
-            "litres": <%= stats.categories.development.total_posts %>
+        "category": "Development",
+            "value": <%= stats.categories.development.total_posts %>
     }, {
-        "country": "Sub Projects",
-            "litres": <%= sub_projects %>
+        "category": "Sub Projects",
+            "value": <%= sub_projects %>
     }, {
-        "country": "Ideas",
-            "litres": <%= stats.categories.ideas.total_posts %>
+        "category": "Ideas",
+            "value": <%= stats.categories.ideas.total_posts %>
     }, {
-        "country": "Tasks",
-            "litres": <% if (tasks) {  %>
+        "category": "Tasks",
+            "value": <% if (tasks) {  %>
             <%= tasks %>
             <% } %>
     }],
-    "valueField": "litres",
-        "titleField": "country",
+    "valueField": "value",
+        "titleField": "category",
         "export": {
         "enabled": true
     }
