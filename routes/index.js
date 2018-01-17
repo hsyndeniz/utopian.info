@@ -7,6 +7,8 @@ var vid_tuts;
 var sub_projects;
 var bugs;
 
+var unreviewed;
+
 var task_social;
 var task_documentation;
 var task_graphics;
@@ -18,6 +20,7 @@ var task_count;
 
 
 var stats_url = "https://utopian-report.herokuapp.com/stats/";
+var pending = "https://utopian.plus/pendingPosts.json";
 
 request(stats_url, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
@@ -36,11 +39,16 @@ request(stats_url, { json: true }, (err, res, body) => {
     console.log(task_count);
 });
 
+request(pending, {json:true}, (err, res, body) => {
+    if (err) {return console.log(err); }
+    unreviewed = body.posts.pending;
+    console.log(unreviewed);
+})
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-      res.render('index', { title: 'Express', 'stats':stats, 'tasks': task_count, 'sub_projects': sub_projects.total_posts, 'bugs': bugs.total_posts });
+      res.render('index', { title: 'Express', 'stats':stats, 'tasks': task_count, 'sub_projects': sub_projects.total_posts, 'bugs': bugs.total_posts, 'unreviewed':unreviewed });
 });
 
 module.exports = router;
