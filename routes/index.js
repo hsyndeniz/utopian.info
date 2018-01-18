@@ -19,12 +19,13 @@ var task_ideas;
 var task_count;
 
 
-var stats_url = "https://utopian-report.herokuapp.com/stats/";
+var stats_url = "https://api.utopian.io/api/stats";
 var pending = "https://utopian.plus/pendingPosts.json";
 
 request(stats_url, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
-    stats               = body;
+    stats               = body.stats;
+    console.log(stats);
     vid_tuts            = stats.categories["video-tutorials"];
     sub_projects        = stats.categories["sub-projects"];
     bugs                = stats.categories["bug-hunting"];
@@ -36,7 +37,7 @@ request(stats_url, { json: true }, (err, res, body) => {
     task_ideas          = stats.categories["task-ideas"];
 
     task_count = task_social.total_posts + task_documentation + task_graphics.total_posts + task_translations.total_posts + task_development.total_posts + task_ideas.total_posts;
-    console.log(task_count);
+   // console.log(task_count);
 });
 
 request(pending, {json:true}, (err, res, body) => {

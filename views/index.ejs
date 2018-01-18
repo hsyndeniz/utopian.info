@@ -96,21 +96,8 @@
   </div>
   <br>
 
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Approved Contributions</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Unreviewed Contributions</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">  <div id="chartdiv"></div>
-    </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <div id="chartdiv2"></div>
-    </div>
-  </div>
+ 
+  <div id="chartdiv"></div>
 
 
 </div>
@@ -200,97 +187,6 @@
         "export": {
         "enabled": true
     }
-    });
-    chart.addListener("init", handleInit);
-    chart.addListener("rollOverSlice", function(e) {
-        handleRollOver(e);
-    });
-    function handleInit(){
-        chart.legend.addListener("rollOverItem", handleRollOver);
-    }
-    function handleRollOver(e){
-        var wedge = e.dataItem.wedge.node;
-        wedge.parentNode.appendChild(wedge);
-    }
-</script>
-
-<script>
-    var chart2 = AmCharts.makeChart("chartdiv2", {
-        "type": "pie",
-        "startDuration": 0,
-        "theme": "light",
-        "addClassNames": true,
-        "legend":{
-            "position":"right",
-            "marginRight":100,
-            "autoMargins":false
-        },
-        "innerRadius": "30%",
-        "defs": {
-            "filter": [{
-                "id": "shadow",
-                "width": "200%",
-                "height": "200%",
-                "feOffset": {
-                    "result": "offOut",
-                    "in": "SourceAlpha",
-                    "dx": 0,
-                    "dy": 0
-                },
-                "feGaussianBlur": {
-                    "result": "blurOut",
-                    "in": "offOut",
-                    "stdDeviation": 5
-                },
-                "feBlend": {
-                    "in": "SourceGraphic",
-                    "in2": "blurOut",
-                    "mode": "normal"
-                }
-            }]
-        },
-        "dataProvider": [{
-            "category": "Blog",
-            "value": <%= unreviewed.categories.blog %>
-        }, {
-            "category": "Analysis",
-            "value": <%= unreviewed.categories.analysis %>
-        }, {
-            "category": "Tutorials",
-            "value": <%= unreviewed.categories.tutorials %>
-        }, {
-            "category": "Video Tutorials",
-            "value": <%= unreviewed.categories.video_tutorials %>
-        }, {
-            "category": "CopyWriting",
-            "value": <%= unreviewed.categories.copywriting %>
-        }, {
-            "category": "Documentation",
-            "value": <%= unreviewed.categories.documentation %>
-        }, {
-            "category": "Graphics",
-            "value": <%= unreviewed.categories.graphics %>
-        }, {
-            "category": "Translations",
-            "value": <%= unreviewed.categories.translations %>
-        }, {
-            "category": "Bug Hunting",
-            "value": <%= unreviewed.categories.bug_hunting %>
-        }, {
-            "category": "Development",
-            "value": <%= unreviewed.categories.development %>
-        }, {
-            "category": "Ideas",
-            "value": <%= unreviewed.categories.ideas %>
-        }, {
-            "category": "Tasks",
-            "value": <%= unreviewed.categories.tasks %>
-        }],
-        "valueField": "value",
-        "titleField": "category",
-        "export": {
-            "enabled": true
-        }
     });
     chart.addListener("init", handleInit);
     chart.addListener("rollOverSlice", function(e) {
